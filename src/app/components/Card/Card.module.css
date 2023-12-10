@@ -1,0 +1,18 @@
+.card_body{
+    padding-block: 30px;
+    padding-inlin: 10px;
+    border-radius: 10px;
+}
+  
+.card_text_box{
+    text-align: center;
+}
+  
+.card_icon_box{
+    text-align: center;
+}
+  
+.card_icon_box img{
+    width: 150px;
+    height: 150px;
+}

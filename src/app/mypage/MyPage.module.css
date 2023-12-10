@@ -1,0 +1,9 @@
+.user_icon_box img{
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
+
+.my_ac{
+    border-right: 1px solid black;
+}
