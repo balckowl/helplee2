@@ -3,15 +3,22 @@ import QR from './QRCode'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: 'QRCode | Helplee',
-    description: 'CSSのLiner-Gradientをビジュアルを用いての生成が可能となっております。',
+    title: 'QR-Code | Helplee',
+    description: 'WebサイトのURLからQRコードを生成することができます。',
     openGraph: {
-        title: 'QRCoode | Helplee',
-        description: 'CSSのLiner-Gradientをビジュアルを用いての生成が可能となっております。',
-        url: "helplee.vercel.app",
+        title: 'QR-Coode | Helplee',
+        description: 'WebサイトのURLからQRコードを生成することができます。',
+        url: "helplee.netlify.app",
         siteName: 'Helplee',
         images: [
-        ]
+            {
+                width: '1200',
+                height: '675',
+                url: 'https://helplee.netlify.app/image/ogp-qrcode.png'
+            }
+        ],
+        locale: 'jp',
+        type: 'article',
     }
 }
 

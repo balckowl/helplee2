@@ -4,14 +4,21 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
     title: 'Image-Filter | Helplee',
-    description: 'CSSのLiner-Gradientをビジュアルを用いての生成が可能となっております。',
+    description: 'CSSのImage-Filterをビジュアルを用いての生成が可能となっております。',
     openGraph: {
-        title: 'Liner-Gradient | Helplee',
-        description: 'CSSのLiner-Gradientをビジュアルを用いての生成が可能となっております。',
-        url: "helplee.vercel.app",
+        title: 'Image-Filter | Helplee',
+        description: 'CSSのImage-Filterをビジュアルを用いての生成が可能となっております。',
+        url: "helplee.netlify.app",
         siteName: 'Helplee',
         images: [
-        ]
+            {
+                width: '1200',
+                height: '675',
+                url: 'https://helplee.netlify.app/image/ogp-imagefilter.png',
+            }
+        ],
+        locale: 'jp',
+        type: 'article',
     }
 }
 

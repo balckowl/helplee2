@@ -4,14 +4,21 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
     title: 'Box-Shadow| Helplee',
-    description: 'CSSのLiner-Gradientをビジュアルを用いての生成が可能となっております。',
+    description: 'CSSのBox-Shadowをビジュアルを用いての生成が可能となっております。',
     openGraph: {
         title: 'Box-Shadow | Helplee',
-        description: 'CSSのLiner-Gradientをビジュアルを用いての生成が可能となっております。',
-        url: "helplee.vercel.app",
+        description: 'CSSのBox-Shadowをビジュアルを用いての生成が可能となっております。',
+        url: "helplee.netlify.app",
         siteName: 'Helplee',
         images: [
-        ]
+            {
+                width: '1200',
+                height: '675',
+                url: 'https://helplee.netlify.app/image/ogp-boxshadow.png'
+            }
+        ],
+        locale: 'jp',
+        type: 'article',
     }
 }
 
