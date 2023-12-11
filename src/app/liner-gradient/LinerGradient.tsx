@@ -12,6 +12,8 @@ import { monokaiSublime } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { AuthContext } from '../context/AuthContext';
 import { arrayUnion, doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import { db } from '@/libs/firebase';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCopy, faStar } from '@fortawesome/free-solid-svg-icons'
 
 interface colorFiled {
     color: string;
@@ -105,14 +107,28 @@ const LinerGradient = () => {
                     <div className="row d-flex justify-content-center g-0">
                         <div className="col-lg-11">
                             <h2 className='text-white page-title'>Linear-Gradinet</h2>
-                            <div className="row d-flex justify-content-center g-0 bg-white py-5" css={linerGradientStyle}>
+                            <div className="row d-flex justify-content-center g-0 bg-white py-5 page-base" css={linerGradientStyle}>
                                 <div className="col-lg-10 col-11">
+
+                                    <div className="row justify-content-end g-0">
+                                        <div className='col-xl-10 blank-space'></div>
+                                        <div className="col-xl-1 col-2">
+                                            <motion.div whileTap={{ scale: 1.2 }} className='bg-dark' onClick={copyToClipBoard}>
+                                                <p className='text-white text-center'><FontAwesomeIcon icon={faCopy} /></p>
+                                            </motion.div>
+                                        </div>
+                                        <div className="col-xl-1 col-2">
+                                            <motion.div whileTap={{ scale: 1.2 }} className='bg-black' onClick={sendFavLinerGradient}>
+                                                <motion.p className='text-center' initial={{ color: 'white' }} whileHover={{ color: 'yellow'}}><FontAwesomeIcon icon={faStar} /></motion.p>
+                                            </motion.div>
+                                        </div>
+                                    </div>
 
                                     <SyntaxHighlighter language="css" style={monokaiSublime}>
                                         {`background: linear-gradient(${generateGradientString()})`}
                                     </SyntaxHighlighter>
 
-                                    <div className="code_box_btn my-3">
+                                    {/* <div className="code_box_btn my-3">
                                         <div className="row g-3 justify-content-end">
                                             <div className="col-lg-1 col-2">
                                                 <div className="code_box_btn_copy" onClick={copyToClipBoard}>
@@ -125,9 +141,9 @@ const LinerGradient = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> */}
 
-                                    <div className={`${styles.degree_box} mb-4`}>
+                                    <div className={`${styles.degree_box} mb-4 mt-4`}>
                                         <div className='row g-0 justify-content-center py-3'>
                                             <div className="col-lg-3">
                                                 <div>

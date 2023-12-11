@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from 'react'
+import { motion } from "framer-motion"
 
 import QRCode from 'qrcode.react'
 
@@ -9,6 +10,21 @@ const QR = () => {
     const [bgColor, setBgColor] = useState<string>("#FFFFFF")
     const [fgColor, setFgColor] = useState<string>("#000000")
 
+    const downloadQR = () => {
+        const canvas = document.getElementById("qrcode");
+        if (canvas instanceof HTMLCanvasElement) {
+            const pngUrl = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+            let downloadLink = document.createElement("a");
+            downloadLink.href = pngUrl;
+            downloadLink.download = "qrcode.png";
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        } else {
+            console.error("Canvas element not found or not an instance of HTMLCanvasElement");
+        }
+    };
+
     return (
         <>
             <section>
@@ -16,7 +32,7 @@ const QR = () => {
                     <div className="row d-flex justify-content-center g-0">
                         <div className="col-lg-11">
                             <h2 className='text-white page-title'>Box-shadow</h2>
-                            <div className="row d-flex justify-content-center g-0 bg-white py-5">
+                            <div className="row d-flex justify-content-center g-0 bg-white py-5 page-base">
                                 <div className="col-lg-10 col-11">
 
                                     <div className="row justify-content-center align-items-center g-5">
@@ -71,9 +87,9 @@ const QR = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className='shadow text-center bg-dark text-white py-2 dl-btn'>
+                                            <motion.div className='shadow text-center py-2 dl-btn' onClick={downloadQR} initial={{ backgroundColor: 'black', color: 'white' }} whileHover={{ backgroundColor: 'white', border: '1px solid black', color: 'black' }} transition={{ duration: 1 }}>
                                                 download
-                                            </div>
+                                            </motion.div>
                                         </div>
                                         <div className="col-xl-4 order-lg-2 order-1">
                                             <div className='shadow d-flex justify-content-center flex-column p-4'>

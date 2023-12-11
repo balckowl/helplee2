@@ -9,6 +9,9 @@ import { monokaiSublime } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { arrayUnion, doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import { db } from '@/libs/firebase';
 import { AuthContext } from '../context/AuthContext';
+import { motion } from 'framer-motion'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCopy, faStar } from '@fortawesome/free-solid-svg-icons';
 
 const BoxShadow = () => {
 
@@ -44,7 +47,7 @@ const BoxShadow = () => {
                 })
                 alert('登録されました。')
             } else {
-                if (userDocSnap.data().BoxShadow?.length >= 3) {
+                if (userDocSnap.data().BoxShadow?.length >= 6) {
                     alert("３つ以上は登録できません。")
                 } else {
                     await updateDoc(userDocRef, {
@@ -73,7 +76,7 @@ const BoxShadow = () => {
                     <div className="row d-flex justify-content-center g-0">
                         <div className="col-lg-11">
                             <h2 className='text-white page-title'>Box-shadow</h2>
-                            <div className="row d-flex justify-content-center g-0 bg-white py-5">
+                            <div className="row d-flex justify-content-center g-0 bg-white py-5 page-base">
                                 <div className="col-lg-10 col-11">
 
                                     <div className="row justify-content-center align-items-center g-5 mb-5">
@@ -159,11 +162,25 @@ const BoxShadow = () => {
                                         </div>
                                     </div>
 
+                                    <div className="row justify-content-end g-0">
+                                        <div className='col-xl-10 blank-space'></div>
+                                        <div className="col-xl-1 col-2">
+                                            <motion.div whileTap={{ scale: 1.2 }} className='bg-dark' onClick={copyToClipBoard}>
+                                                <p className='text-white text-center'><FontAwesomeIcon icon={faCopy} /></p>
+                                            </motion.div>
+                                        </div>
+                                        <div className="col-xl-1 col-2">
+                                            <motion.div whileTap={{ scale: 1.2 }} className='bg-black' onClick={sendFavBoxShadow}>
+                                                <motion.p className='text-center' initial={{ color: 'white' }} whileHover={{ color: 'yellow'}}><FontAwesomeIcon icon={faStar} /></motion.p>
+                                            </motion.div>
+                                        </div>
+                                    </div>
+
                                     <SyntaxHighlighter language="css" style={monokaiSublime}>
                                         {`box-shadow: ${boxShadowCode}`}
                                     </SyntaxHighlighter>
 
-                                    <div className="code_box_btn my-3">
+                                    {/* <div className="code_box_btn my-3">
                                         <div className="row g-3 justify-content-end">
                                             <div className="col-lg-1 col-2">
                                                 <div className="code_box_btn_copy" onClick={copyToClipBoard}>
@@ -176,7 +193,7 @@ const BoxShadow = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
