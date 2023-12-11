@@ -11,6 +11,9 @@ import styles from './MyPage.module.css'
 import { DocumentData, arrayRemove, doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "@/libs/firebase";
 import { motion } from 'framer-motion';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye } from '@fortawesome/free-solid-svg-icons'
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const MyPage = () => {
 
@@ -94,8 +97,7 @@ const MyPage = () => {
     }, [user])
 
     const linerGradientStyle = css({
-        background: 'red',
-        // background: linerGradientList[linerGradientNumber],
+        background: linerGradientList[linerGradientNumber],
     })
 
     const boxShadowStyle = css({
@@ -116,22 +118,22 @@ const MyPage = () => {
                 <div className="container">
                     <div className="row d-flex justify-content-center g-0">
                         <div className="col-lg-11">
-                            <h2 className='text-white'>My Page</h2>
-                            {user ? (<div className="row d-flex justify-content-center g-0 bg-white py-5">
+                            <h2 className='text-white page-title'>My Page</h2>
+                            {user ? (<div className="row d-flex justify-content-center g-0 bg-white py-5 page-base">
                                 <div className="col-11">
 
                                     <div className="row justify-content-center g-5">
                                         <div className={`col-xl-3 col-lg-4 ${styles.my_ac}`}>
                                             <div className="text-center select-area">
-                                                <div className={`${styles.user_icon_box}`}>
+                                                {/* <div className={`${styles.user_icon_box}`}>
                                                     <img src={user.photoURL} alt="" css={imgFilterStyle} />
-                                                </div>
-                                                <h3 className='mb-2 mypage-name'>{user.displayName}</h3>
+                                                </div> */}
+                                                {/* <h3 className='mb-2 mypage-name'>{user.displayName}</h3> */}
                                                 <div className="d-flex flex-column gap-3 select-box-list">
                                                     <div className={`select-box ${judge == 1 ? 'isactiveselect' : ''}`} onClick={() => setJudge(1)}>
                                                         <p>Liner-Gradient</p>
                                                     </div>
-                                                    <div className={`select-box ${judge == 2 ? 'isactiveselect' : ''}`} css={boxShadowStyle} onClick={() => setJudge(2)}>
+                                                    <div className={`select-box ${judge == 2 ? 'isactiveselect' : ''}`} onClick={() => setJudge(2)}>
                                                         <p>Box-Shadow</p>
                                                     </div>
                                                     <div className={`select-box ${judge == 3 ? 'isactiveselect' : ''}`} onClick={() => setJudge(3)}>
@@ -146,130 +148,185 @@ const MyPage = () => {
                                         <div className="col-xl-9 col-lg-8">
                                             <div>
                                                 {judge == 1 ? (
-                                                    <div className='linear_gradient'>
+                                                    <div>
                                                         <h2 className='heading'>Liner-Gradient</h2>
-                                                        {cssData?.LinerGradient != '' ? cssData?.LinerGradient?.map((css: string, index: number) => (
-                                                            <div className="row justify-content-center align-items-center mb-4" key={index}>
-                                                                <div className="col-10">
-                                                                    <div>
-                                                                        <SyntaxHighlighter language="css" style={monokaiSublime}>
-                                                                            {css}
-                                                                        </SyntaxHighlighter>
+                                                        <div>
+                                                            <div className='shadow mb-4 preview-area' css={linerGradientStyle}></div>
+                                                        </div>
+                                                        <div className='linear_gradient'>
+                                                            {(cssData?.LinerGradient && cssData?.LinerGradient.length > 0) ? cssData?.LinerGradient?.map((css: string, index: number) => (
+                                                                <div key={index}>
+                                                                    <div className="row justify-content-end g-0">
+                                                                        <div className='col-xl-10 blank-space'></div>
+                                                                        <div className="col-xl-1 col-2">
+                                                                            <motion.div whileTap={{ scale: 1.2 }} className='bg-dark' onClick={() => DeleteFavData(css)}>
+                                                                                <p className='text-white text-center'><FontAwesomeIcon icon={faTrash} /></p>
+                                                                            </motion.div>
+                                                                        </div>
+                                                                        <div className="col-xl-1 col-2">
+                                                                            <motion.div whileTap={{ scale: 1.2 }} className={`${linerGradientNumber === index ? 'selected' : 'notselected'}`} onClick={() => setLinerGradientNumber(index)}>
+                                                                                <p className='text-center'><FontAwesomeIcon icon={faEye} /></p>
+                                                                            </motion.div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="row justify-content-center align-items-center mb-4 g-0">
+                                                                        <div className="col-12">
+                                                                            <div>
+                                                                                <SyntaxHighlighter language="css" style={monokaiSublime}>
+                                                                                    {`linear-gradient: ${css}`}
+                                                                                </SyntaxHighlighter>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                                <div className="col-1">
-                                                                    <div className='bg-dark' onClick={() => DeleteFavData(css)}>
-                                                                        <p className='text-white text-center'>削除</p>
-                                                                    </div>
+                                                            )) : (
+                                                                <div>
+                                                                    <p>お気に入りに登録されていません。</p>
                                                                 </div>
-                                                                <div className="col-1">
-                                                                    <motion.div whileTap={{ scale: 1.2 }} className={`${linerGradientNumber === index ? 'selected' : 'notselected'}`} onClick={() => setLinerGradientNumber(index)}>
-                                                                        <p className='text-center'>選択</p>
-                                                                    </motion.div>
-                                                                </div>
-                                                            </div>
-                                                        )) : (
-                                                            <div>
-                                                                <p>お気に入りに登録されていません。</p>
-                                                            </div>
-                                                        )}
+                                                            )}
+                                                        </div>
                                                     </div>
                                                 ) : (<></>)}
                                                 {judge == 2 ? (
-                                                    <div className='linear_gradient'>
+                                                    <div>
                                                         <h2 className='heading'>Box-Shadow</h2>
-                                                        {cssData?.BoxShadow != '' ? cssData?.BoxShadow?.map((css: string, index: number) => (
-                                                            <div className="row justify-content-center align-items-center mb-4" key={index}>
-                                                                <div className="col-10">
-                                                                    <div>
-                                                                        <SyntaxHighlighter language="css">
-                                                                            {css}
-                                                                        </SyntaxHighlighter>
+                                                        <div>
+                                                            <div className='shadow p-5 mb-4'>
+                                                                <div className='preview-square' css={boxShadowStyle}></div>
+                                                            </div>
+                                                        </div>
+                                                        <div className='linear_gradient'>
+                                                            {(cssData?.BoxShadow && cssData?.BoxShadow.length > 0) ? cssData?.BoxShadow?.map((css: string, index: number) => (
+                                                                <div key={index}>
+                                                                    <div className="row justify-content-end g-0">
+                                                                        <div className='col-xl-10 blank-space'></div>
+                                                                        <div className="col-xl-1 col-2">
+                                                                            <motion.div whileTap={{ scale: 1.2 }} className='bg-dark' onClick={() => DeleteFavData(css)}>
+                                                                                <p className='text-white text-center'><FontAwesomeIcon icon={faTrash} /></p>
+                                                                            </motion.div>
+                                                                        </div>
+                                                                        <div className="col-xl-1 col-2">
+                                                                            <motion.div whileTap={{ scale: 1.2 }} className={`${boxShadowNumber === index ? 'selected' : 'notselected'}`} onClick={() => setBoxShadowNumber(index)}>
+                                                                                <p className='text-center'><FontAwesomeIcon icon={faEye} /></p>
+                                                                            </motion.div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="row justify-content-center align-items-center mb-4 g-0">
+                                                                        <div className="col-12">
+                                                                            <div>
+                                                                                <SyntaxHighlighter language="css" style={monokaiSublime}>
+                                                                                    {`box-shadow: ${css}`}
+                                                                                </SyntaxHighlighter>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                                <div className="col-1">
-                                                                    <div className='bg-dark' onClick={() => DeleteFavData(css)}>
-                                                                        <p className='text-white text-center'>削除</p>
-                                                                    </div>
+                                                            )) : (
+                                                                <div>
+                                                                    <p>お気に入りに登録されていません。</p>
                                                                 </div>
-                                                                <div className="col-1">
-                                                                    <motion.div whileTap={{ scale: 1.2 }} className={`${boxShadowNumber === index ? 'selected' : 'notselected'}`} onClick={() => setBoxShadowNumber(index)}>
-                                                                        <p className='text-center'>選択</p>
-                                                                    </motion.div>
-                                                                </div>
-                                                            </div>
-                                                        )) : (
-                                                            <div>
-                                                                <p>お気に入りに登録されていません。</p>
-                                                            </div>
-                                                        )}
+                                                            )}
+                                                        </div>
                                                     </div>
                                                 ) : (<></>)}
                                                 {judge == 3 ? (
-                                                    <div className='linear_gradient'>
+                                                    <div>
                                                         <h2 className='heading'>Image-Filter</h2>
-                                                        {cssData?.ImgFilter != '' ? cssData?.ImgFilter?.map((css: string, index: number) => (
-                                                            <div className="row justify-content-center align-items-center mb-4" key={index}>
-                                                                <div className="col-10">
-                                                                    <div>
-                                                                        <SyntaxHighlighter language="css">
-                                                                            {css}
-                                                                        </SyntaxHighlighter>
+                                                        <div>
+                                                            <div className='shadow mb-4 preview-img-box'>
+                                                                <img src="/image/sample-img.jpg" alt="" css={imgFilterStyle} />
+                                                            </div>
+                                                        </div>
+                                                        <div className='linear_gradient'>
+                                                            {cssData?.ImgFilter && cssData?.ImgFilter.length > 0 ? cssData?.ImgFilter?.map((css: string, index: number) => (
+                                                                <div key={index}>
+                                                                    <div className="row justify-content-end g-0">
+                                                                        <div className='col-xl-10 blank-space'></div>
+                                                                        <div className="col-xl-1 col-2">
+                                                                            <motion.div whileTap={{ scale: 1.2 }} className='bg-dark' onClick={() => DeleteFavData(css)}>
+                                                                                <p className='text-white text-center'><FontAwesomeIcon icon={faTrash} /></p>
+                                                                            </motion.div>
+                                                                        </div>
+                                                                        <div className="col-xl-1 col-2">
+                                                                            <motion.div whileTap={{ scale: 1.2 }} className={`${textShadowNumber === index ? 'selected' : 'notselected'}`} onClick={() => setTextShadowNumber(index)}>
+                                                                                <p className='text-center'><FontAwesomeIcon icon={faEye} /></p>
+                                                                            </motion.div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="row justify-content-center align-items-center mb-4 g-0">
+                                                                        <div className="col-12">
+                                                                            <div>
+                                                                                <SyntaxHighlighter language="css" style={monokaiSublime}>
+                                                                                    {`filter: ${css}`}
+                                                                                </SyntaxHighlighter>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                                <div className="col-1">
-                                                                    <div className='bg-dark' onClick={() => DeleteFavData(css)}>
-                                                                        <p className='text-white text-center'>削除</p>
-                                                                    </div>
+                                                            )) : (
+                                                                <div>
+                                                                    <p>お気に入りに登録されていません。</p>
                                                                 </div>
-                                                                <div className="col-1">
-                                                                    <motion.div whileTap={{ scale: 1.2 }} className={`${imgFilterNumber === index ? 'selected' : 'notselected'}`} onClick={() => setImgFilterNumber(index)}>
-                                                                        <p className='text-center'>選択</p>
-                                                                    </motion.div>
-                                                                </div>
-                                                            </div>
-                                                        )) : (
-                                                            <div>
-                                                                <p>お気に入りに登録されていません。</p>
-                                                            </div>
-                                                        )}
+                                                            )}
+                                                        </div>
                                                     </div>
                                                 ) : (<></>)}
                                                 {judge == 4 ? (
-                                                    <div className='linear_gradient'>
-                                                        <h2 className='heading' css={textShadowStyle}>Text-Shadow</h2>
-                                                        {cssData?.TextShadow != '' ? cssData?.TextShadow?.map((css: string, index: number) => (
-                                                            <div className="row justify-content-center align-items-center mb-4" key={index}>
-                                                                <div className="col-10">
-                                                                    <div>
-                                                                        <SyntaxHighlighter language="css">
-                                                                            {css}
-                                                                        </SyntaxHighlighter>
+                                                    <div>
+                                                        <h2 className='heading'>Text-Shadow</h2>
+                                                        <div>
+                                                            <div className='shadow mb-4 p-5 preview-text-box'>
+                                                                <p css={textShadowStyle}>激辛フルーツ</p>
+                                                            </div>
+                                                        </div>
+                                                        <div className='linear_gradient'>
+                                                            {cssData?.TextShadow && cssData?.TextShadow.length > 0? cssData?.TextShadow?.map((css: string, index: number) => (
+                                                                <div key={index}>
+                                                                    <div className="row justify-content-end g-0">
+                                                                        <div className='col-xl-10 blank-space'></div>
+                                                                        <div className="col-xl-1 col-2">
+                                                                            <motion.div whileTap={{ scale: 1.2 }} className='bg-dark' onClick={() => DeleteFavData(css)}>
+                                                                                <p className='text-white text-center'><FontAwesomeIcon icon={faTrash} /></p>
+                                                                            </motion.div>
+                                                                        </div>
+                                                                        <div className="col-xl-1 col-2">
+                                                                            <motion.div whileTap={{ scale: 1.2 }} className={`${textShadowNumber === index ? 'selected' : 'notselected'}`} onClick={() => setTextShadowNumber(index)}>
+                                                                                <p className='text-center'><FontAwesomeIcon icon={faEye} /></p>
+                                                                            </motion.div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="row justify-content-center align-items-center mb-4 g-0">
+                                                                        <div className="col-12">
+                                                                            <div>
+                                                                                <SyntaxHighlighter language="css" style={monokaiSublime}>
+                                                                                    {`text-shadow: ${css}`}
+                                                                                </SyntaxHighlighter>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                                <div className="col-1">
-                                                                    <div className='bg-dark' onClick={() => DeleteFavData(css)}>
-                                                                        <p className='text-white text-center'>削除</p>
-                                                                    </div>
+                                                            )) : (
+                                                                <div>
+                                                                    <p>お気に入りに登録されていません。</p>
                                                                 </div>
-                                                                <div className="col-1">
-                                                                    <motion.div whileTap={{ scale: 1.2 }} className={`${textShadowNumber === index ? 'selected' : 'notselected'}`} onClick={() => setTextShadowNumber(index)}>
-                                                                        <p className='text-center'>選択</p>
-                                                                    </motion.div>
-                                                                </div>
-                                                            </div>
-                                                        )) : (
-                                                            <div>
-                                                                <p>お気に入りに登録されていません。</p>
-                                                            </div>
-                                                        )}
+                                                            )}
+                                                        </div>
                                                     </div>
                                                 ) : (<></>)}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>) : (<></>)}
+                            </div>) : (
+                                <div className='user-none-page bg-white page-base d-flex align-items-center justify-content-center'>
+                                    <div>
+                                        <div className="user-none-img-box">
+                                            <img src="/image/user-none.png" alt="" />
+                                        </div>
+                                        <p className='text-center'>Userがいません。</p>
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div >
