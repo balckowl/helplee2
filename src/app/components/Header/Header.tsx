@@ -20,7 +20,7 @@ const Header = ({ isActive, setIsActive }: headerProps) => {
         <h1><Link href="/">Helplee</Link></h1>
         <nav>
           <ul className={`menu ${isActive ? 'is-active' : ''}`}>
-            <li><Link href="">Usage</Link></li>
+            <li><Link href="/">Usage</Link></li>
             <li><Link href="/mypage">MyPage</Link></li>
             <li>{user ? <LogoutBtn /> : <LoginBtn />}</li>
             <li className='guest-icon'>
