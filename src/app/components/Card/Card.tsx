@@ -16,7 +16,7 @@ const Card = ({ name, link, imgUrl }: cardProps) => {
                         <img src={imgUrl} alt="" />
                     </div>
                     <div className={`${styles.card_text_box}`}>
-                        <h3>{name}</h3>
+                        <h4>{name}</h4>
                     </div>
                 </Link>
             </div>
