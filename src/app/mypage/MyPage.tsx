@@ -96,21 +96,23 @@ const MyPage = () => {
         }
     }, [user])
 
-    const linerGradientStyle = css({
-        background: linerGradientList[linerGradientNumber],
-    })
 
-    const boxShadowStyle = css({
-        boxShadow: boxShadowList[boxShadowNumber],
-    })
+    const linerGradientStyle = css`
+        background: ${linerGradientList?.length > 0 ? linerGradientList[linerGradientNumber] : ''};
+    `
 
-    const imgFilterStyle = css({
-        filter: imgFilterList[imgFilterNumber],
-    });
+    const boxShadowStyle = css`
+        boxShadow: ${boxShadowList?.length > 0 ? boxShadowList[boxShadowNumber] : ''};
+    `
 
-    const textShadowStyle = css({
-        textShadow: textShadowList[textShadowNumber],
-    })
+
+    const imgFilterStyle = css`
+        filter: ${imgFilterList?.length > 0 ? imgFilterList[imgFilterNumber] : ''};
+    `
+
+    const textShadowStyle = css`
+        textShadow: ${textShadowList?.length > 0 ? textShadowList[textShadowNumber] : ''};
+    `
 
     return (
         <>
@@ -127,8 +129,8 @@ const MyPage = () => {
                                             <div className="text-center select-area">
                                                 {/* <div className={`${styles.user_icon_box}`}>
                                                     <img src={user.photoURL} alt="" css={imgFilterStyle} />
-                                                </div> */}
-                                                {/* <h3 className='mb-2 mypage-name'>{user.displayName}</h3> */}
+                                                </div>
+                                                <h3 className='mb-2 mypage-name'>{user.displayName}</h3> */}
                                                 <div className="d-flex flex-column gap-3 select-box-list">
                                                     <div className={`select-box ${judge == 1 ? 'isactiveselect' : ''}`} onClick={() => setJudge(1)}>
                                                         <p>Liner-Gradient</p>
@@ -248,7 +250,7 @@ const MyPage = () => {
                                                                             </motion.div>
                                                                         </div>
                                                                         <div className="col-xl-1 col-2">
-                                                                            <motion.div whileTap={{ scale: 1.2 }} className={`${textShadowNumber === index ? 'selected' : 'notselected'}`} onClick={() => setTextShadowNumber(index)}>
+                                                                            <motion.div whileTap={{ scale: 1.2 }} className={`${imgFilterNumber === index ? 'selected' : 'notselected'}`} onClick={() => setImgFilterNumber(index)}>
                                                                                 <p className='text-center'><FontAwesomeIcon icon={faEye} /></p>
                                                                             </motion.div>
                                                                         </div>
@@ -280,7 +282,7 @@ const MyPage = () => {
                                                             </div>
                                                         </div>
                                                         <div className='linear_gradient'>
-                                                            {cssData?.TextShadow && cssData?.TextShadow.length > 0? cssData?.TextShadow?.map((css: string, index: number) => (
+                                                            {cssData?.TextShadow && cssData?.TextShadow.length > 0 ? cssData?.TextShadow?.map((css: string, index: number) => (
                                                                 <div key={index}>
                                                                     <div className="row justify-content-end g-0">
                                                                         <div className='col-xl-10 blank-space'></div>
