@@ -123,7 +123,7 @@ const ImgFilter = () => {
 
     const imgFilterStyle = css({
         border: "1px solid black",
-        filter: `blur(${blur}px) grayscale(${grayScale}%) sepia(${sepia}) brightness(${brightness}%) hue-rotate(${hueRotate}deg) saturate(${saturate}%) opacity(${opacity}%) contrast(${contrast}%) invert(${invert}%)`,
+        filter: `blur(${blur}px) grayscale(${grayScale}%) sepia(${sepia}%) brightness(${brightness}%) hue-rotate(${hueRotate}deg) saturate(${saturate}%) opacity(${opacity}%) contrast(${contrast}%) invert(${invert}%)`,
     })
 
     return (
