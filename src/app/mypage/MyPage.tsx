@@ -12,7 +12,7 @@ import { DocumentData, arrayRemove, doc, getDoc, updateDoc } from "firebase/fire
 import { db } from "@/libs/firebase";
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEye } from '@fortawesome/free-solid-svg-icons'
+import { faCopy, faEye } from '@fortawesome/free-solid-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const MyPage = () => {
@@ -96,6 +96,19 @@ const MyPage = () => {
         }
     }, [user])
 
+    const copyToClipBoard = async (index: number) => {
+        try {
+            await navigator.clipboard.writeText(
+                `${judge == 1 ? `linear-gradient : ${linerGradientList[index]}` 
+                : (judge == 2 ? boxShadowList[index]
+                : (judge == 3 ? imgFilterList[index] 
+                : (judge == 4 ? textShadowList[index]: '')))}`
+            );
+            alert('コピーされました。');
+        } catch (error) {
+            console.error('コピーに失敗しました。', error);
+        }
+    }
 
     const linerGradientStyle = css`
         background: ${linerGradientList?.length > 0 ? linerGradientList[linerGradientNumber] : ''};
@@ -121,7 +134,7 @@ const MyPage = () => {
                     <div className="row d-flex justify-content-center g-0">
                         <div className="col-lg-11">
                             <h2 className='text-white page-title'>My Page</h2>
-                            {user ? (<div className="row d-flex justify-content-center g-0 bg-white py-5 page-base">
+                            {user ? (<div className="row d-flex justify-content-center g-0 bg-white py-5 page-base" css={judge == 1 ? linerGradientStyle : ''}>
                                 <div className="col-11">
 
                                     <div className="row justify-content-center g-5">
@@ -159,7 +172,12 @@ const MyPage = () => {
                                                             {(cssData?.LinerGradient && cssData?.LinerGradient.length > 0) ? cssData?.LinerGradient?.map((css: string, index: number) => (
                                                                 <div key={index}>
                                                                     <div className="row justify-content-end g-0">
-                                                                        <div className='col-xl-10 blank-space'></div>
+                                                                        <div className='col-xl-9 blank-space'></div>
+                                                                        <div className='col-xl-1 col-2'>
+                                                                            <motion.div whileTap={{ scale: 1.2 }} className='bg-dark' onClick={() => copyToClipBoard(index)}>
+                                                                                <p className='text-white text-center'><FontAwesomeIcon icon={faCopy}/></p>
+                                                                            </motion.div>
+                                                                        </div>
                                                                         <div className="col-xl-1 col-2">
                                                                             <motion.div whileTap={{ scale: 1.2 }} className='bg-dark' onClick={() => DeleteFavData(css)}>
                                                                                 <p className='text-white text-center'><FontAwesomeIcon icon={faTrash} /></p>
@@ -201,7 +219,12 @@ const MyPage = () => {
                                                             {(cssData?.BoxShadow && cssData?.BoxShadow.length > 0) ? cssData?.BoxShadow?.map((css: string, index: number) => (
                                                                 <div key={index}>
                                                                     <div className="row justify-content-end g-0">
-                                                                        <div className='col-xl-10 blank-space'></div>
+                                                                        <div className='col-xl-9 blank-space'></div>
+                                                                        <div className='col-xl-1 col-2'>
+                                                                            <motion.div whileTap={{ scale: 1.2 }} className='bg-dark' onClick={() => copyToClipBoard(index)}>
+                                                                                <p className='text-white text-center'><FontAwesomeIcon icon={faCopy}/></p>
+                                                                            </motion.div>
+                                                                        </div>
                                                                         <div className="col-xl-1 col-2">
                                                                             <motion.div whileTap={{ scale: 1.2 }} className='bg-dark' onClick={() => DeleteFavData(css)}>
                                                                                 <p className='text-white text-center'><FontAwesomeIcon icon={faTrash} /></p>
@@ -243,7 +266,12 @@ const MyPage = () => {
                                                             {cssData?.ImgFilter && cssData?.ImgFilter.length > 0 ? cssData?.ImgFilter?.map((css: string, index: number) => (
                                                                 <div key={index}>
                                                                     <div className="row justify-content-end g-0">
-                                                                        <div className='col-xl-10 blank-space'></div>
+                                                                        <div className='col-xl-9 blank-space'></div>
+                                                                        <div className='col-xl-1 col-2'>
+                                                                            <motion.div whileTap={{ scale: 1.2 }} className='bg-dark' onClick={() => copyToClipBoard(index)}>
+                                                                                <p className='text-white text-center'><FontAwesomeIcon icon={faCopy}/></p>
+                                                                            </motion.div>
+                                                                        </div>
                                                                         <div className="col-xl-1 col-2">
                                                                             <motion.div whileTap={{ scale: 1.2 }} className='bg-dark' onClick={() => DeleteFavData(css)}>
                                                                                 <p className='text-white text-center'><FontAwesomeIcon icon={faTrash} /></p>
@@ -285,7 +313,12 @@ const MyPage = () => {
                                                             {cssData?.TextShadow && cssData?.TextShadow.length > 0 ? cssData?.TextShadow?.map((css: string, index: number) => (
                                                                 <div key={index}>
                                                                     <div className="row justify-content-end g-0">
-                                                                        <div className='col-xl-10 blank-space'></div>
+                                                                        <div className='col-xl-9 blank-space'></div>
+                                                                        <div className='col-xl-1 col-2'>
+                                                                            <motion.div whileTap={{ scale: 1.2 }} className='bg-dark' onClick={() => copyToClipBoard(index)}>
+                                                                                <p className='text-white text-center'><FontAwesomeIcon icon={faCopy}/></p>
+                                                                            </motion.div>
+                                                                        </div>
                                                                         <div className="col-xl-1 col-2">
                                                                             <motion.div whileTap={{ scale: 1.2 }} className='bg-dark' onClick={() => DeleteFavData(css)}>
                                                                                 <p className='text-white text-center'><FontAwesomeIcon icon={faTrash} /></p>
