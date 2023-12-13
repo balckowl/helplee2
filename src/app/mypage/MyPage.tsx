@@ -100,9 +100,9 @@ const MyPage = () => {
         try {
             await navigator.clipboard.writeText(
                 `${judge == 1 ? `linear-gradient : ${linerGradientList[index]}` 
-                : (judge == 2 ? boxShadowList[index]
-                : (judge == 3 ? imgFilterList[index] 
-                : (judge == 4 ? textShadowList[index]: '')))}`
+                : (judge == 2 ? `box-shadow : ${boxShadowList[index]}`
+                : (judge == 3 ? `filter : ${imgFilterList[index]} `
+                : (judge == 4 ? `text-shadow: ${textShadowList[index]}`: '')))}`
             );
             alert('コピーされました。');
         } catch (error) {
@@ -115,7 +115,7 @@ const MyPage = () => {
     `
 
     const boxShadowStyle = css`
-        boxShadow: ${boxShadowList?.length > 0 ? boxShadowList[boxShadowNumber] : ''};
+        box-shadow: ${boxShadowList?.length > 0 ? boxShadowList[boxShadowNumber] : ''};
     `
 
 
@@ -124,7 +124,7 @@ const MyPage = () => {
     `
 
     const textShadowStyle = css`
-        textShadow: ${textShadowList?.length > 0 ? textShadowList[textShadowNumber] : ''};
+        text-shadow: ${textShadowList?.length > 0 ? textShadowList[textShadowNumber] : ''};
     `
 
     return (
