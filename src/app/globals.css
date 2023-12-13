@@ -61,8 +61,21 @@ header > .container{
   height: 80px;
 }
 
-header h1 a{
+.logo-box{
+  margin-right: 15px;
+}
+
+.logo-box img{
+  width: 45px;
+  height: 45px;
+}
+
+.brand h1{
   color: #fff;
+}
+
+.brand a{
+  display :flex;
 }
 
 .guest-icon img{
