@@ -8,13 +8,13 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Image-Filter | Helplee',
         description: 'CSSのImage-Filterをビジュアルを用いての生成が可能となっております。',
-        url: "helplee.netlify.app",
+        url: "helplee2.vercel.app",
         siteName: 'Helplee',
         images: [
             {
                 width: '1200',
                 height: '675',
-                url: 'https://helplee.netlify.app/image/ogp-imagefilter.png',
+                url: 'https://helplee2.vercel.app/image/ogp-imagefilter.png',
             }
         ],
         locale: 'jp',

@@ -8,13 +8,13 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'My-Page | Helplee',
         description: 'お気に入りに保存したCSSを確認することができます。',
-        url: "helplee.netlify.app",
+        url: "helplee2.vercel.app",
         siteName: 'Helplee',
         images: [
             {
                 width: '1200',
                 height: '675',
-                url: 'https://helplee.netlify.app/image/ogp-mypage.png'
+                url: 'https://helplee2.vercel.app/image/ogp-mypage.png'
             }
         ],
         locale: 'jp',
