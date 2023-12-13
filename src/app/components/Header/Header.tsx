@@ -17,7 +17,14 @@ const Header = ({ isActive, setIsActive }: headerProps) => {
   return (
     <header>
       <div className="container d-flex align-items-center justify-content-between">
-        <h1><Link href="/">Helplee</Link></h1>
+        <div className='brand'>
+          <Link href="/">
+            <div className='logo-box'>
+              <img src="/image/logo.png" alt="" />
+            </div>
+            <h1>Helplee</h1>
+          </Link>
+        </div>
         <nav>
           <ul className={`menu ${isActive ? 'is-active' : ''}`}>
             <li><Link href="/">Usage</Link></li>
