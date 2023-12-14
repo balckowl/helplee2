@@ -35,7 +35,6 @@ const LinerGradient = () => {
         const updatedColorFields: colorFiled[] = [...colorFields];
         updatedColorFields[index][field] = value;
         setColorFields(updatedColorFields);
-        console.log(updatedColorFields)
     }
 
     const removeColorField = () => {
@@ -91,7 +90,7 @@ const LinerGradient = () => {
                 }
             }
         } else {
-
+            alert('LOGINを行ってください。')
         }
     }
 
@@ -119,7 +118,7 @@ const LinerGradient = () => {
                                         </div>
                                         <div className="col-xl-1 col-2">
                                             <motion.div whileTap={{ scale: 1.2 }} className='bg-black' onClick={sendFavLinerGradient}>
-                                                <motion.p className='text-center' initial={{ color: 'white' }} whileHover={{ color: 'yellow'}}><FontAwesomeIcon icon={faStar} /></motion.p>
+                                                <motion.p className='text-center' initial={{ color: 'white' }} whileHover={{ color: user ? 'yellow' : 'red' }}><FontAwesomeIcon icon={faStar} /></motion.p>
                                             </motion.div>
                                         </div>
                                     </div>

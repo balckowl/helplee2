@@ -49,7 +49,7 @@ const TextShadow = () => {
         }
       }
     } else {
-
+      alert('LOGINを行ってください。')
     }
   }
 
@@ -169,7 +169,7 @@ const TextShadow = () => {
                     </div>
                     <div className="col-xl-1 col-2">
                       <motion.div whileTap={{ scale: 1.2 }} className='bg-black' onClick={sendFavTextShadow}>
-                        <motion.p className='text-center' initial={{ color: 'white' }} whileHover={{ color: 'yellow' }}><FontAwesomeIcon icon={faStar} /></motion.p>
+                        <motion.p className='text-center' initial={{ color: 'white' }} whileHover={{ color: user ? 'yellow' : 'red' }}><FontAwesomeIcon icon={faStar} /></motion.p>
                       </motion.div>
                     </div>
                   </div>

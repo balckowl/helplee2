@@ -103,7 +103,7 @@ const ImgFilter = () => {
                 }
             }
         } else {
-
+            alert('LOGINを行ってください。')
         }
     }
 
@@ -320,7 +320,7 @@ const ImgFilter = () => {
                                         </div>
                                         <div className="col-xl-1 col-2">
                                             <motion.div whileTap={{ scale: 1.2 }} className='bg-black' onClick={sendFavImgFilter}>
-                                                <motion.p className='text-center' initial={{ color: 'white' }} whileHover={{ color: 'yellow' }}><FontAwesomeIcon icon={faStar} /></motion.p>
+                                                <motion.p className='text-center' initial={{ color: 'white' }} whileHover={{ color: user ? 'yellow' : 'red' }}><FontAwesomeIcon icon={faStar} /></motion.p>
                                             </motion.div>
                                         </div>
                                     </div>
