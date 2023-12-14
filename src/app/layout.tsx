@@ -1,6 +1,6 @@
 "use client"
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Noto_Sans_JP } from 'next/font/google'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './globals.css'
 import Header from './components/Header/Header'
@@ -8,7 +8,7 @@ import Footer from './components/Footer/Footer'
 import { AuthProvider } from './context/AuthContext'
 import { useState } from 'react'
 
-const inter = Inter({ subsets: ['latin'] })
+const notoSansJp = Noto_Sans_JP({ subsets: ['latin'] })
 
 export default function RootLayout({
   children,
@@ -20,7 +20,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`inter.className ${isActive ? 'is-active' : ''}`}>
+      <body className={`${notoSansJp.className} ${isActive ? 'is-active' : ''}`}>
         <AuthProvider>
           <Header isActive={isActive} setIsActive={setIsActive} />
           <div id="root">
