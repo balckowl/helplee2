@@ -20,6 +20,9 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <meta name="google-site-verification" content="NR7ckILI_D-jmfo6nO6RceBVbruKojRD7UwaHxNb5Xc" />
+      </head>
       <body className={`${notoSansJp.className} ${isActive ? 'is-active' : ''}`}>
         <AuthProvider>
           <Header isActive={isActive} setIsActive={setIsActive} />
