@@ -2,10 +2,10 @@
 import { linkWithCredential, signInWithPopup } from "firebase/auth"
 import { auth, googleProvider, githubProvider } from "@/libs/firebase"
 import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
-import Modal from 'react-modal';
-import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
 import { useModal } from 'react-hooks-use-modal';
+
 
 // Modal.setAppElement("body");
 
@@ -45,7 +45,10 @@ const LoginBtn = () => {
     return (
         <div className="align-self-center d-sm-block">
             <div>
-                <p className='text-white' onClick={open}>Login</p>
+                <div className='text-white login-btn' onClick={open}>
+                    <p><FontAwesomeIcon  icon={faRightToBracket}/></p>
+                    <p>LOGIN</p>
+                </div>
                 <Modal>
                     <div>
                         <div className="modal-inner">
