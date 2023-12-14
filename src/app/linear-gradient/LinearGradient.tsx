@@ -50,8 +50,6 @@ const LinerGradient = () => {
         const colorFieldGradient = colorFields
             .map((field) => `,${field.color} ${field.endPoint}%`)
             .join('');
-        console.log(colorFieldGradient)
-        console.log(baseGradient + colorFieldGradient)
         return baseGradient + colorFieldGradient;
     };
 

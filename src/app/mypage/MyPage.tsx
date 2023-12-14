@@ -45,7 +45,6 @@ const MyPage = () => {
                 setBoxShadowList(data?.BoxShadow)
                 setTextShadowList(data?.TextShadow)
                 setImgFilterList(data?.ImgFilter)
-                console.log(data?.ImgFilter)
             }
 
         } catch (error) {
