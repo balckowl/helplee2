@@ -52,6 +52,12 @@ section{
   padding-block: 102px;
 }
 
+button{
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
 /*header*/
 header{
   background-color: #1b0f38;
@@ -84,6 +90,53 @@ header > .container{
   border-radius: 50%;
 }
 
+/*---------------login/logout UI ----------------*/
+
+
+.modal-inner button{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.login-btn-group{
+  height: 100%;
+}
+
+.google-login-btn{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid black;
+  width: max-content;
+  padding: 5px 20px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.google-logo-box img{
+  width: 30px;
+  height: 30px;
+}
+
+.github-login-btn{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid black;
+  width: max-content;
+  padding: 5px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.github-login-btn img{
+  width: 30px;
+  height: 30px;
+}
+
+/*---------------menu ----------------*/
 .menu{
   display: flex;
   align-items: center;

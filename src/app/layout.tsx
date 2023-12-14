@@ -20,10 +20,14 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`inter.className ${isActive ? 'is-active': ''}`}>
+      <body className={`inter.className ${isActive ? 'is-active' : ''}`}>
         <AuthProvider>
-          <Header isActive={isActive} setIsActive={setIsActive}/>
-          <main>{children}</main>
+          <Header isActive={isActive} setIsActive={setIsActive} />
+          <div id="root">
+            <main>
+              {children}
+            </main>
+          </div>
           <Footer />
         </AuthProvider>
       </body>
