@@ -27,8 +27,8 @@ const Header = ({ isActive, setIsActive }: headerProps) => {
         </div>
         <nav>
           <ul className={`menu ${isActive ? 'is-active' : ''}`}>
-            <li><Link href="/">Usage</Link></li>
-            <li><Link href="/mypage">MyPage</Link></li>
+            <li><Link href="/" onClick={() => setIsActive(false)}>Usage</Link></li>
+            <li><Link href="/mypage" onClick={() => setIsActive(false)}>MyPage</Link></li>
             <li>{user ? <LogoutBtn /> : <LoginBtn />}</li>
             <li className='guest-icon'>
               {user ? <img src={user.photoURL} alt="" /> : <img src='/image/guest-icon.png' alt="" />}

@@ -49,7 +49,7 @@ input{
 }
 
 section{
-  padding-block: 102px;
+  padding-block: 100px;
 }
 
 button{
@@ -313,6 +313,15 @@ footer{
 }
 
 @media(max-width: 576px){
+
+  section{
+    padding-block: 30px;
+  }
+
+  footer{
+    font-size: 12px;
+  }
+
   .menu{
     position: absolute;
     inset: 0 auto auto 0;
