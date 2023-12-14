@@ -312,6 +312,37 @@ footer{
   height: 250px;
 }
 
+/*----------------article---------------*/
+.article h3{
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+  margin-bottom: 30px;
+  margin-top: 50px;
+}
+
+.article p{
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+.article ul{
+  list-style: decimal inside;
+}
+
+.article li{
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+.article img{
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.article .marker{
+  background:linear-gradient(transparent 60%, #ff6 60%);
+}
+
 @media(max-width: 576px){
 
   section{
@@ -357,5 +388,17 @@ footer{
 
   .github-login-btn p{
     font-size: 12px;
+  }
+
+  .article h3{
+    font-size: 18px;
+  }
+
+  .article li{
+    font-size: 13px;
+  }
+
+  .article p{
+    font-size: 13px;
   }
 }
