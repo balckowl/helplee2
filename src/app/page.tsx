@@ -28,9 +28,9 @@ const Home = () => {
       <section>
         <div className="container">
           <div className="row g-4">
-            <Card name={'Linear-Gradient'} link={'/liner-gradient'} imgUrl={'/image/Liner-Gradient-icon.png'}/>
+            <Card name={'Linear-Gradient'} link={'/linear-gradient'} imgUrl={'/image/Linear-Gradient-icon.png'}/>
             <Card name={'Box-Shadow'} link={'/box-shadow'} imgUrl={'/image/Box-Shadow-icon.png'} />
-            <Card name={'Image-Filter'} link={'/img-filter'} imgUrl={'/image/Img-Filter-icon.png'} />
+            <Card name={'Image-Filter'} link={'/image-filter'} imgUrl={'/image/Img-Filter-icon.png'} />
             <Card name={'Text-Shadow'} link={'/text-shadow'} imgUrl={'/image/Text-Shadow-icon.png'} />
             <Card name={'QR-Code'} link={'/qr-code'} imgUrl={'/image/QRCode-icon.png'} />
            </div>

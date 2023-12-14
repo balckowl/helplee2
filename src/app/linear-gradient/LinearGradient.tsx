@@ -6,7 +6,7 @@ import { css } from '@emotion/react'
 
 import { motion } from 'framer-motion'
 
-import styles from './LinerGradient.module.css'
+import styles from './LinearGradient.module.css'
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { monokaiSublime } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { AuthContext } from '../context/AuthContext';

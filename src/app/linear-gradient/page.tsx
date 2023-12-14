@@ -1,5 +1,5 @@
 import React from 'react'
-import LinerGradient from './LinerGradient'
+import LinearGradient from './LinearGradient'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const page = () => {
     return (
         <>
-            <LinerGradient />
+            <LinearGradient />
         </>
     )
 }

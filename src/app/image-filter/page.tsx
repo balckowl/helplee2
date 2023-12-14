@@ -1,5 +1,5 @@
 import React from 'react'
-import ImgFilter from './ImgFilter'
+import ImageFilter from './ImageFilter'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const page = () => {
     return (
         <>
-            <ImgFilter />
+            <ImageFilter />
         </>
     )
 }

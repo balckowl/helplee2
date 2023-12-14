@@ -10,7 +10,7 @@ const Usage = () => {
                     <div className="row d-flex justify-content-center g-0">
                         <div className="col-lg-11">
                             <h2 className='text-white page-title'>Usage</h2>
-                            <div className="row d-flex justify-content-center g-0 bg-white py-5 page-base">
+                            <div className="row d-flex justify-content-center g-0 bg-white pb-5 pb-lg-5 pt-lg-3 page-base">
                                 <div className="col-lg-10 col-11">
                                     <article className='article'>
                                         <h3>Helpleeとは?</h3>
