@@ -31,12 +31,12 @@ const LoginBtn = () => {
     //     }
     // }
 
-    const modalStyle: React.CSSProperties = {
-        backgroundColor: 'white',
-        width: '600px',
-        height: '300px',
-        borderRadius: '10px',
-    };
+    // const modalStyle: React.CSSProperties = {
+    //     backgroundColor: 'white',
+    //     width: '600px',
+    //     height: '300px',
+    //     borderRadius: '10px',
+    // };
 
     const [Modal, open, close, isOpen] = useModal('root', {
         preventScroll: true //これはオプション。デフォルトはfalse
@@ -48,7 +48,7 @@ const LoginBtn = () => {
                 <p className='text-white' onClick={open}>Login</p>
                 <Modal>
                     <div>
-                        <div style={modalStyle} className="modal-inner">
+                        <div className="modal-inner">
                             <button onClick={close}>
                                 <p><FontAwesomeIcon icon={faXmarkCircle} /></p>
                             </button>
