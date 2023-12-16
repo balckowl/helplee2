@@ -93,8 +93,8 @@ const ImgFilter = () => {
                 })
                 alert('登録されました。')
             } else {
-                if (userDocSnap.data().ImgFilter?.length >= 3) {
-                    alert("３つ以上は登録できません。")
+                if (userDocSnap.data().ImgFilter?.length >= 5) {
+                    alert("5つ以上は登録できません。")
                 } else {
                     await updateDoc(userDocRef, {
                         ImgFilter: arrayUnion(imgFilterString()),

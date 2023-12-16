@@ -39,8 +39,8 @@ const TextShadow = () => {
         })
         alert('登録されました。')
       } else {
-        if (userDocSnap.data().TextShadow?.length >= 3) {
-          alert("３つ以上は登録できません。")
+        if (userDocSnap.data().TextShadow?.length >= 5) {
+          alert("5つ以上は登録できません。")
         } else {
           await updateDoc(userDocRef, {
             TextShadow: arrayUnion(`${textShadowCode}`),

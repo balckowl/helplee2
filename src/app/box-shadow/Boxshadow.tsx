@@ -47,8 +47,8 @@ const BoxShadow = () => {
                 })
                 alert('登録されました。')
             } else {
-                if (userDocSnap.data().BoxShadow?.length >= 6) {
-                    alert("３つ以上は登録できません。")
+                if (userDocSnap.data().BoxShadow?.length >= 5) {
+                    alert("5つ以上は登録できません。")
                 } else {
                     await updateDoc(userDocRef, {
                         BoxShadow: arrayUnion(`${boxShadowCode}`),

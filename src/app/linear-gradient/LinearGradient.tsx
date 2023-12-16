@@ -79,7 +79,7 @@ const LinerGradient = () => {
                 alert('登録されました。')
             } else {
                 if (userDocSnap.data().LinerGradient?.length >= 5) {
-                    alert("３つ以上は登録できません。")
+                    alert("5つ以上は登録できません。")
                 } else {
                     await updateDoc(userDocRef, {
                         LinerGradient: arrayUnion(`linear-gradient(${generateGradientString()})`),
