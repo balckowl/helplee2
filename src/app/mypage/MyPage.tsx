@@ -98,7 +98,7 @@ const MyPage = () => {
     const copyToClipBoard = async (index: number) => {
         try {
             await navigator.clipboard.writeText(
-                `${judge == 1 ? `linear-gradient : ${linerGradientList[index]}` 
+                `${judge == 1 ? `background : ${linerGradientList[index]}` 
                 : (judge == 2 ? `box-shadow : ${boxShadowList[index]}`
                 : (judge == 3 ? `filter : ${imgFilterList[index]} `
                 : (judge == 4 ? `text-shadow: ${textShadowList[index]}`: '')))}`

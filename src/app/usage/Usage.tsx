@@ -17,7 +17,7 @@ const Usage = () => {
                                         <p>CSSをGUIで直感的に生成することのできるWeb制作お助けツールです。</p>
                                         <p>LOGINをすることによって、生成した各CSSはお気に入り保存することも可能です。</p>
                                         <h3>使い方</h3>
-                                        <p>各CSSジェネレータは同じような構造をしているため、LinerGradientについて説明をします。</p>
+                                        <p>各CSSジェネレータは同じような構造をしているため、LinearGradientについて説明をします。</p>
                                         <img src="/image/article-linearGradient.png" alt="" />
                                         <ul>
                                             <li>まず、グラデーションの角度を設定します。</li>
