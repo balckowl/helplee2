@@ -149,7 +149,7 @@ const LinerGradient = () => {
                                             </div>
                                             <div className="col-lg-3">
                                                 <div>
-                                                    <p className='text-center'>180deg</p>
+                                                    <p className='text-center'>{degree}deg</p>
                                                 </div>
                                             </div>
                                             <div className="col-lg-4">
