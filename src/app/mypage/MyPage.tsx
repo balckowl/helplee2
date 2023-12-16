@@ -192,7 +192,7 @@ const MyPage = () => {
                                                                         <div className="col-12">
                                                                             <div>
                                                                                 <SyntaxHighlighter language="css" style={monokaiSublime}>
-                                                                                    {`linear-gradient: ${css}`}
+                                                                                    {`background: ${css}`}
                                                                                 </SyntaxHighlighter>
                                                                             </div>
                                                                         </div>
