@@ -24,11 +24,11 @@ helpleeは、GUIで直感的にCSSを生成できるサイトです。ボック�
 
 ## デモ画像 🖼️
 
-### Linear Gradient ジェネレータ
+### Linear-Gradient ジェネレータ
 
 <img width="1440" alt="2024-03-03_6 37 08" src="https://github.com/balckowl/helplee2/assets/129815120/9aa20700-da52-4f84-975b-1de8a2122f84">
 
-### マイページ
+### mypage
 <img width="1440" alt="2024-03-03_6 37 39" src="https://github.com/balckowl/helplee2/assets/129815120/bea5e40e-16b9-4be2-a481-41c7c51e2d5d">
 
 
