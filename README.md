@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# helplee
 
-## Getting Started
+## 作品概要 📦
+helpleeは、GUIで直感的にCSSを生成できるサイトです。ボックスシャドウジェネレータやグラデーションジェネレータなどのCSS生成サイトはあるものの、それは別々のサイトとしてあり、一度生成したお気に入りのCSSを保存することができません。
+本サイトはこのような問題を解決しました。
 
-First, run the development server:
+## スライドリンク 🔗
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+[スライドリンクはこちら](https://www.canva.com/design/DAF21kr40uc/en7st5a2iAQ0TftpX9Z39w/edit?utm_content=DAF21kr40uc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## デモ画像 🖼️
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Linear Gradient ジェネレータ
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<img width="1440" alt="2024-03-03_6 37 08" src="https://github.com/balckowl/helplee2/assets/129815120/9aa20700-da52-4f84-975b-1de8a2122f84">
 
-## Learn More
+### マイページ
+<img width="1440" alt="2024-03-03_6 37 39" src="https://github.com/balckowl/helplee2/assets/129815120/bea5e40e-16b9-4be2-a481-41c7c51e2d5d">
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 技術スタック 🚀
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **フロントエンド**: Next.js, TS, Bootstrap, Framer-Motion, Emotion
+- **バックエンド**: Firestore
+- **認証**: Firebase Auth
+- **インフラ**: Vercel
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 今後の展望 🔭
+- 機能の追加
+- 広告掲載による収益化
+- 独自ドメインの取得
