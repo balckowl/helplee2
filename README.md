@@ -22,7 +22,7 @@ helpleeは、GUIで直感的にCSSを生成できるサイトです。ボック�
 
 [スライドリンクはこちら](https://www.canva.com/design/DAF21kr40uc/en7st5a2iAQ0TftpX9Z39w/edit?utm_content=DAF21kr40uc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
-## デモ画像 🖼️
+## 作品画像 🖼️
 
 ### Linear-Gradient ジェネレータ
 
